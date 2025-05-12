@@ -20,32 +20,30 @@
 
     <!-- TRACKING SCRIPT START -->
     <script>
-        function getURLParameters() {
-            const params = {};
-            const queryString = window.location.search.substring(1);
-            const regex = /([^&=]+)=([^&]*)/g;
-            let m;
-            while (m = regex.exec(queryString)) {
-                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-            }
-            return params;
+      function getURLParameters() {
+        const params = {};
+        const queryString = window.location.search.substring(1);
+        const regex = /([^&=]+)=([^&]*)/g;
+        let m;
+        while ((m = regex.exec(queryString))) {
+          params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
         }
-        function appendParamsToLinks() {
-            const params = getURLParameters();
-            const links = document.querySelectorAll('a[href]');
-            links.forEach(link => {
-                const url = new URL(link.href);
-                for (const key in params) {
-                    url.searchParams.set(key, params[key]);
-                }
-                link.href = url.toString();
-            });
-        }
-        window.onload = appendParamsToLinks;
+        return params;
+      }
+      function appendParamsToLinks() {
+        const params = getURLParameters();
+        const links = document.querySelectorAll("a[href]");
+        links.forEach((link) => {
+          const url = new URL(link.href);
+          for (const key in params) {
+            url.searchParams.set(key, params[key]);
+          }
+          link.href = url.toString();
+        });
+      }
+      window.onload = appendParamsToLinks;
     </script>
     <!-- TRACKING SCRIPT END -->
-
-    
   </head>
   <body>
     <main id="container">
@@ -96,7 +94,7 @@
             </li>
           </ul>
           <a href="https://pg.thehealth-now.site/pg" class="watch-button"
-            >CHOOSE YOUR PACKAGE</a
+            >Watch Now</a
           >
         </div>
       </div>
